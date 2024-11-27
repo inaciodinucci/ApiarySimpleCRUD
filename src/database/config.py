@@ -14,7 +14,7 @@ def get_connection():
             user=os.getenv('DB_USER', 'root'),
             password=os.getenv('DB_PASSWORD', ''),
             database=os.getenv('DB_NAME', 'apiario_db'),
-
+            auth_plugin='mysql_native_password'
         )
         return connection
     except Error as e:

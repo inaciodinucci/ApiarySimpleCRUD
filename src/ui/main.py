@@ -7,10 +7,23 @@ from src.ui.views import (
 
 def main(page: ft.Page):
     page.title = "Gerenciador de Apiário"
-    page.padding = 20
+    page.padding = 0
     page.theme_mode = "light"
     page.window_width = 1200
     page.window_height = 800
+
+    # Título principal
+    titulo = ft.Container(
+        content=ft.Text(
+            "Gerenciador de Apiário",
+            size=32,
+            weight=ft.FontWeight.BOLD,
+            color=ft.colors.WHITE
+        ),
+        bgcolor=ft.colors.AMBER_700,
+        padding=20,
+        alignment=ft.alignment.center
+    )
 
     # Container para conteúdo dinâmico
     content_area = ft.Container(
@@ -50,21 +63,28 @@ def main(page: ft.Page):
         min_width=100,
         min_extended_width=200,
         group_alignment=-0.9,
+        bgcolor=ft.colors.AMBER,
         destinations=[
             ft.NavigationRailDestination(
                 icon=ft.icons.PERSON,
                 selected_icon=ft.icons.PERSON_OUTLINED,
                 label="Produtores",
+                icon_content=ft.Icon(ft.icons.PERSON, color=ft.colors.WHITE),
+                selected_icon_content=ft.Icon(ft.icons.PERSON_OUTLINED, color=ft.colors.WHITE),
             ),
             ft.NavigationRailDestination(
                 icon=ft.icons.LANDSCAPE,
                 selected_icon=ft.icons.LANDSCAPE_OUTLINED,
                 label="Apiários",
+                icon_content=ft.Icon(ft.icons.LANDSCAPE, color=ft.colors.WHITE),
+                selected_icon_content=ft.Icon(ft.icons.LANDSCAPE_OUTLINED, color=ft.colors.WHITE),
             ),
             ft.NavigationRailDestination(
                 icon=ft.icons.HIVE,
                 selected_icon=ft.icons.HIVE_OUTLINED,
                 label="Colmeias",
+                icon_content=ft.Icon(ft.icons.HIVE, color=ft.colors.WHITE),
+                selected_icon_content=ft.Icon(ft.icons.HIVE_OUTLINED, color=ft.colors.WHITE),
             ),
         ],
         on_change=lambda e: route_change(
@@ -74,11 +94,17 @@ def main(page: ft.Page):
 
     # Layout Principal
     page.add(
-        ft.Row(
+        ft.Column(
             [
-                rail,
-                ft.VerticalDivider(width=1),
-                content_area,
+                titulo,
+                ft.Row(
+                    [
+                        rail,
+                        ft.VerticalDivider(width=1),
+                        content_area,
+                    ],
+                    expand=True,
+                ),
             ],
             expand=True,
         )

@@ -2,6 +2,10 @@
 CREATE DATABASE IF NOT EXISTS apiario_db;
 USE apiario_db;
 
+-- Configurar autenticação do usuário root para usar mysql_native_password
+ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY '';
+FLUSH PRIVILEGES;
+
 -- Criar tabelas
 CREATE TABLE IF NOT EXISTS produtor (
     id INT AUTO_INCREMENT PRIMARY KEY,
