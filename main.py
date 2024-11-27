@@ -1,7 +1,5 @@
 import flet as ft
-from interface import ApiarioInterface
+from src.ui.main import main
 
-def main(page: ft.Page):
-    ApiarioInterface(page)
-
-ft.app(target=main)
+if __name__ == "__main__":
+    ft.app(target=main)
