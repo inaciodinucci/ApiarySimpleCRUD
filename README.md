@@ -2,7 +2,7 @@
 
 Altere a senha da database nas seguintes classes
 
-1 - .env > DB_PASSWORD:(senha do seu banco de dados)
+1 - .env > DB_PASSWORD=(senha do seu banco de dados)
 
 2 - src>database>config.py> password=os.getenv('DB_PASSWORD', '(senha do seu banco de dados'),
 
